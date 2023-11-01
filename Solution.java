@@ -1,5 +1,5 @@
 import java.util.List;
-
+import java.util.LinkedList;
 import javax.xml.transform.Source;
 
 class Node<T> {
@@ -15,10 +15,16 @@ class Node<T> {
 class Solution {
   public static List<String> linkedListValues(Node<String> head) {
     // todo
-    return;
+    LinkedList<String> ret = new LinkedList<String>();
+    Node<String> curr = head;
+    while(curr != null){
+      ret.add(curr.val);
+      curr = curr.next;
+    }
+    return ret;
   }
 
-  public static void main() {
+  public static void main(String[] args) {
     Node<String> a = new Node<>("a");
     Node<String> b = new Node<>("b");
     Node<String> c = new Node<>("c");
@@ -29,7 +35,7 @@ class Solution {
 
     // a -> b -> c -> d
 
-    Solution.linkedListValues(a); 
-    // -> [ "a", "b", "c", "d" ]
+    System.out.println(Solution.linkedListValues(a)); 
+    // -> [ "a", "b", "c", "d" ] 
   }
 }
